@@ -10,11 +10,27 @@
         <servlet-name>index</servlet-name>
         <jsp-file>jsp/index.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>clientsorders</servlet-name>
+        <jsp-file>jsp/ClientsOrders.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>orderdetails</servlet-name>
+        <jsp-file>jsp/OrderDetails.jsp</jsp-file>
+    </servlet>
 
     <!-- MAPPING -->
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/accueil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clientsorders</servlet-name>
+        <url-pattern>/clientsorders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>orderdetails</servlet-name>
+        <url-pattern>/orderdetails</url-pattern>
     </servlet-mapping>
 
     <session-config>
