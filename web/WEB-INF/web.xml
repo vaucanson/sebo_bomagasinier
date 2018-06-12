@@ -21,6 +21,7 @@
     <servlet>
         <servlet-name>orderdetails</servlet-name>
         <jsp-file>jsp/OrderDetails.jsp</jsp-file>
+    </servlet>
 
     <!-- MAPPING -->
     <servlet-mapping>
