@@ -83,17 +83,17 @@ main h3 {
 }
 
 .btn {
-	background-color: #B09067;
+	background-color: #97b3e2;
 	color: white;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	padding: 15px 20px;
+	padding: 5px 10px;
 	margin: 10px 0;
 	text-align: center;
 }
 
 .btn:hover {
-	background-color: rgba(176,144,103,0.75);
+	background-color: rgba(173, 191, 221, 0.75);
 	color: white;
 }
 
@@ -107,10 +107,9 @@ main h3 {
 }
 
 header {
-	background-image: url(../img/bg.jpg);
 	background-repeat: no-repeat;
 	background-position: center bottom;
-	background-color: #96B011;
+	background-color: #97b3e2;
 	color: white;
 }
 
@@ -151,6 +150,11 @@ header nav a:hover {
 	color: white;
 }
 
+nav{
+    width: 70%;
+    margin : 0 auto;
+}
+
 .ribbon {
 	width: 150px;
 	position: absolute;
@@ -171,149 +175,6 @@ header nav a:hover {
 	text-align: center;
 }
 
-#noel h1 {
-	color: #96B011;
-}
-
-#noel small {
-	font-size: 1.2rem;
-}
-
-#categorie, #tea {
-	margin: 25px 0;
-	padding: 15px;
-}
-
-#categorie {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	text-align: center;
-	background-color: white;
-}
-
-#categorie h2, #product h2 {
-	flex-basis: 100%;
-}
-
-#categorie:hover > a {
-	transition: all 0.2s ease 0s;
-	opacity: 0.5;
-}
-
-#categorie:hover > a:hover {
-	transition: all 0.2s ease 0s;
-	opacity: 1;
-}
-
-#tea  {
-	display: flex;
-	justify-content: space-between;
-	background-color: white;
-	text-align: center;
-}
-
-#tea article {
-	margin: 0 10px;
-}
-
-.price strong {
-	display: block;
-	font-family: "Amaranth";
-	font-size: 2.4rem;
-	font-weight: normal;
-}
-
-/* Partie Listing Product */
-.tea {
-	background-color: white;
-	padding: 25px;
-	margin: 25px 0;
-}
-
-.tea > img {
-	float: left;
-	margin: 25px 10px 0 0;
-}
-
-.listing-product {
-	display: flex;
-	text-align: center;
-}
-
-.listing-product img {
-	width: 70%;
-	margin: 0 auto;
-}
-
-/* Partie Product */
-#product {
-	background-color: white;
-	padding: 25px;
-}
-
-#product-detail {
-	display: flex;
-	justify-content: space-between;
-}
-
-#product-detail h3 {
-	margin: 0;
-	font-size: 3rem;
-}
-
-#product-detail h4 {
-	margin: 0;
-}
-
-#product-detail p {
-	font-style: italic;
-}
-
-#rating {
-	text-align: right;
-	color: #999;
-	font-size: 2.5rem;
-}
-
-#rating a {
-	display: block;
-	font-size: 1.6rem;
-}
-
-.gold {
-	color: #FFDC0F;
-}
-
-.price h4 {
-	font-family: "Amaranth";
-	font-weight: normal;
-	font-size: 4rem;
-	margin-top: 0;
-}
-
-.price a {
-	display: block;
-}
-
-#product-quantity {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: right;
-}
-
-#product-quantity select {
-	width: 300px;
-	padding: 5px;
-}
-
-#wishlist::before {
-	content: "\F004";
-	font-family: "FontAwesome";
-	margin: 5px;
-	color: #E7877A;
-}
 
 /* Partie About */
 #presentation {

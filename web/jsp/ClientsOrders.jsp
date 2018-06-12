@@ -40,6 +40,7 @@
                 <th>Traiter</th>
              </thead>
              
+             <tbody>
             <tr>
                 <td>Carmen</td>
                 <td>33 ans</td>
@@ -55,7 +56,7 @@
                 <td>blabla</td>
                 <td><button type="button">Details</button></td>
             </tr>
-            
+            </tbody>
          </table>
             
             </main>
