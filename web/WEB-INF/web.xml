@@ -10,11 +10,19 @@
         <servlet-name>index</servlet-name>
         <jsp-file>jsp/index.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>réception</servlet-name>
+        <jsp-file>jsp/Reception.jsp</jsp-file>
+    </servlet>
 
     <!-- MAPPING -->
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/accueil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>réception</servlet-name>
+        <url-pattern>/réception</url-pattern>
     </servlet-mapping>
 
     <session-config>

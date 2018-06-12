@@ -9,11 +9,39 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Produits en attente de réception</title>
     </head>
     <body>
-        <table>
-            
-        </table>
+        
+        
+<table>
+   <caption>Réception des produits livrés</caption>
+   <thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>Id</th>
+           <th>Nom</th>
+           <th>Catégorie</th>
+           <th>Date de commande</th>
+           <th>Quantité commandée</th>
+           <th>Quantité reçue</th>
+           <th>Enregistrer</th>
+       </tr>
+   </thead>
+   <tbody> <!-- Corps du tableau -->
+       <tr>
+           <td>Carmen</td>
+           <td>33 ans</td>
+           <td>Espagne</td>
+           <td>Espagne</td>
+           <td>Espagne</td>
+           <td>Espagne</td>
+           <td>Espagne</td>
+       </tr>
+   </tbody>
+</table>
+        
+        
+        
+        
     </body>
 </html>
