@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/Reception.css">
         <title>Produits en attente de réception</title>
     </head>
     <body>
@@ -29,13 +31,31 @@
    </thead>
    <tbody> <!-- Corps du tableau -->
        <tr>
-           <td>Carmen</td>
-           <td>33 ans</td>
-           <td>Espagne</td>
-           <td>Espagne</td>
-           <td>Espagne</td>
-           <td>Espagne</td>
-           <td>Espagne</td>
+           <td>15643</td>
+           <td>Lorie « Ta meilleure Amie »</td>
+           <td>Death Metal</td>
+           <td>04/06/2018</td>
+           <td>15</td>
+           <td>-</td>
+           <td><button>ENREGISTRER</button></td>
+       </tr>
+       <tr>
+           <td>15643</td>
+           <td>Lorie « Ta meilleure Amie »</td>
+           <td>Death Metal</td>
+           <td>04/06/2018</td>
+           <td>15</td>
+           <td>-</td>
+           <td><button>ENREGISTRER</button></td>
+       </tr>
+       <tr>
+           <td>15643</td>
+           <td>Lorie « Ta meilleure Amie »</td>
+           <td>Death Metal</td>
+           <td>04/06/2018</td>
+           <td>15</td>
+           <td>-</td>
+           <td><button>ENREGISTRER</button></td>
        </tr>
    </tbody>
 </table>
