@@ -5,7 +5,10 @@
 --%>
 
 
-<%@page import="javax.json.JsonObject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.util.logging.Logger"%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.net.MalformedURLException"%>
 <%@page import="dto.ClientOrder"%>
@@ -14,48 +17,31 @@
 <%@page import="java.net.HttpURLConnection"%>
 <%@page import="java.io.BufferedReader"%>
 <%@page import="java.io.InputStreamReader"%>
-<%@page import="java.util.ArrayList" %>
 
 <%
     
-            ArrayList<ClientOrder> listState31 = new ArrayList<>();
-            ArrayList<ClientOrder> listState32 = new ArrayList<>();
+            List<ClientOrder> listState31 = new ArrayList<ClientOrder>();
+        //    ArrayList<ClientOrder> listState32 = new ArrayList<ClientOrder>();
             
             
-       // try {
-       /*     URL url = new URL("http://172.16.153.29:8080/sebo_backendnew/api/ordermanager/getordersbystate?31");
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Accept", "application/json");
-
-		if (conn.getResponseCode() != 200) {
-                    out.print("Erreur de connexion : " + conn.getResponseCode() + " - " + conn.getResponseMessage());
-                    
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ conn.getResponseCode());     
-		}
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-			(conn.getInputStream())));
-
-                if (br.readLine() !=null)
+       try {
+           
+            URL url = new URL("http://172.16.153.29:8080/sebo_backendnew/api/ordermanager/getordersbystate/31");
+            listState31 = tools.JsonTools.getClientOrdersFromJson(url);
+            
+            
+                
+              for (int i = 0; i < listState31.size(); i++)
                 {
-                    String output = br.readLine();
-                    out.print(output);
+                    System.out.print(listState31.get(i));
                 }
-			
-		conn.disconnect();*/
-                tools.JsonTools.getClientOrdersFromJson("http://172.16.153.29:8080/sebo_backendnew/api/ordermanager/getordersbystate?31");
-            
-      /*  } catch (MalformedURLException e) {
 
-        e.printStackTrace();
-
-        } catch (IOException e) {
-
-              e.printStackTrace();
-
-        }*/
+        }
+        catch (Exception e)
+        {
+            System.out.print(e.getMessage());
+        }
+           
 
 %>
 

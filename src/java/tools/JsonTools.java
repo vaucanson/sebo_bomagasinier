@@ -11,7 +11,10 @@ import dto.ClientOrder;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import jdk.nashorn.api.scripting.URLReader;
 
 /**
  *
@@ -19,29 +22,21 @@ import java.util.ArrayList;
  */
 public class JsonTools {
     
-    public static ClientOrder getClientOrdersFromJson(String url)
+    public static List<ClientOrder> getClientOrdersFromJson(URL url)
     {
          Gson gson = new Gson();
+         List<ClientOrder> list = new ArrayList<>();
 
-        try (Reader reader = new FileReader(url)) {
+        try (Reader reader = new URLReader(url)) {
 
             // Convert JSON to Java Object
-            ArrayList<ClientOrder> list = gson.fromJson(reader, ArrayList.class);
-
-          /*  for (int i = 0; i < list.size(); i++)
-            {
-                System.out.println(list.get(i));
-            }*/
-       // Convert JSON to JsonElement, and later to String
-          JsonElement json = gson.fromJson(reader, JsonElement.class);
-            String jsonInString = gson.toJson(json);
-            System.out.println(jsonInString);
+            list = gson.fromJson(reader, List.class);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         
-        return null;
+        return list;
     }
         
     
