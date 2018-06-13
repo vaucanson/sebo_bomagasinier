@@ -35,15 +35,7 @@
                 {
                     System.out.print(listState31.get(i));
                 }
-            
-       /* } catch (MalformedURLException e) {
 
-        e.printStackTrace();
-
-        } catch (IOException e) {
-
-              e.printStackTrace();
-*/
         }
         catch (Exception e)
         {
