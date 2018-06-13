@@ -11,12 +11,12 @@ table{
 td{
     border-bottom : 1px solid black;
     border-top : 1px solid black;
-    padding : 5px 10px;
+    padding : 10px 30px;
 }
 
-tr:nth-child(even)
+tr:nth-child(odd)
 {
-    background-color: #76787c;
+    background-color: #97b3e2;
     color : white;
 }
 

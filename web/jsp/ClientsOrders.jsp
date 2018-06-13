@@ -5,43 +5,39 @@
 --%>
 
 
+<%@page import="org.omg.PortableInterceptor.SYSTEM_EXCEPTION"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.logging.Level"%>
-<%@page import="java.util.logging.Logger"%>
-<%@page import="java.io.IOException"%>
-<%@page import="java.net.MalformedURLException"%>
 <%@page import="dto.ClientOrder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.net.URL"%>
-<%@page import="java.net.HttpURLConnection"%>
-<%@page import="java.io.BufferedReader"%>
-<%@page import="java.io.InputStreamReader"%>
 
-<%
-    
-            List<ClientOrder> listState31 = new ArrayList<ClientOrder>();
-        //    ArrayList<ClientOrder> listState32 = new ArrayList<ClientOrder>();
-            
-            
-       try {
+    <%! public String fillTab(JspWriter out, int state)
+       {
+            List<ClientOrder> list = new ArrayList<ClientOrder>();
            
-            URL url = new URL("http://172.16.153.29:8080/sebo_backendnew/api/ordermanager/getordersbystate/31");
-            listState31 = tools.JsonTools.getClientOrdersFromJson(url);
-            
-            
-                
-              for (int i = 0; i < listState31.size(); i++)
-                {
-                    System.out.print(listState31.get(i));
-                }
+           try
+           {
+            URL urlState = new URL("http://172.16.153.29:8080/sebo_backendnew/api/ordermanager/getordersbystate/" + state);
+            list = tools.JsonTools.getClientOrdersFromJson(urlState);
 
-        }
-        catch (Exception e)
-        {
-            System.out.print(e.getMessage());
-        }
+            for (ClientOrder c : list) {
+                    out.print("<tr>");
+                    out.print("<td>" + c.getClient().getId() + "</td>");
+                    out.print("<td>" + c.getId() + "</td>");
+                    out.print("<td>" + c.getOrderDate() + "</td>");
+                    out.print("<td>blabla</td>");
+                    out.print("<td><button type=\"button\" class=\"btn\">Details</button></td>");
+            }
+           }
+           catch (Exception e)
+           {
+               System.out.print(e.getMessage());
+           }
            
+           
+           return null;
+       }
 
 %>
 
@@ -50,11 +46,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/General.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/ClientsOrders.css">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/General.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ClientsOrders.css">
+        <title>Gestion de Clients</title>
     </head>
     <body>
         <header>
@@ -82,24 +78,18 @@
              </thead>
              
              <tbody>
-            <tr>
-                <td>Carmen</td>
-                <td>33 ans</td>
-                <td>Espagne</td>
-                <td>blabla</td>
-                <td><button type="button" class="btn">Details</button></td>
+                 <tr>
+                <%fillTab(out, 31);%>
             </tr>
             
             <tr>
-                <td>Michelle</td>
-                <td>26 ans</td>
-                <td>États-Unis</td>
-                <td>blabla</td>
-                <td><button type="button">Details</button></td>
+                <%fillTab(out, 32);%>
             </tr>
             </tbody>
          </table>
             
             </main>
+            
+            <footer>   © Sebo Corporation - Gestion Commandes Clients</footer>
     </body>
 </html>
