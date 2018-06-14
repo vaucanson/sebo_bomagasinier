@@ -42,14 +42,8 @@ footer {
         padding-bottom : 3px;
 }
 
-#btnConfirm{
+div{
     margin-top : 20px;
     margin-right: 30px;
-    display: inline-block;
-}
-
-#btnCancel{
-    margin-top : 20px;
-    margin-left : 30px;
     display: inline-block;
 }

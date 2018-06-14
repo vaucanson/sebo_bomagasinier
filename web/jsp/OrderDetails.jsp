@@ -90,10 +90,10 @@
             </tbody>
          </table>
             
-            <div id='btnConfirm'>
+            <div>
                 <button class='btn'>Valider la Commande</button>
             </div>
-            <div id='btnCancel'>
+            <div>
                 <button class='btn'>Annuler la Commande</button>
             </div>
             
