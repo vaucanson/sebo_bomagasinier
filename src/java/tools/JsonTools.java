@@ -6,10 +6,8 @@
 package tools;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.stream.JsonReader;
 import dto.ClientOrder;
-import java.io.FileReader;
+import dto.OrderLineDetails;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
@@ -50,5 +48,30 @@ public class JsonTools {
         return list;
     }
         
+    
+    public static List<OrderLineDetails> getOrderDetailsFromJson(URL url)
+    {
+        Gson gson = new Gson();
+         List<OrderLineDetails> list = new ArrayList<>();
+
+        try (Reader reader = new URLReader(url)) {
+            //création  un reader Json qui va analyser le retour de l'url
+            javax.json.JsonReader jsonReader = Json.createReader(reader);
+            //on demande au reader d'extraire un tableau json
+            JsonArray arr = jsonReader.readArray();
+            for (int i = 0; i < arr.size(); i++)
+            {
+                // pour chaque élément du tableau, qui est un JsonObject, on utilise Gson pour en faire un objet métier
+                OrderLineDetails co = gson.fromJson(arr.getJsonObject(i).toString(), OrderLineDetails.class);
+                list.add(co);
+            }
+          
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
     
 }

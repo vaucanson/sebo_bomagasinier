@@ -12,7 +12,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.net.URL"%>
 
-    <%! public String fillTab(JspWriter out, int state)
+    <%! public void fillTab(JspWriter out, int state)
        {
             List<ClientOrder> list = new ArrayList<ClientOrder>();
            
@@ -34,9 +34,7 @@
            {
                System.out.print(e.getMessage());
            }
-           
-           
-           return null;
+      
        }
 
 %>
@@ -47,7 +45,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/General.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ClientsOrders.css">
         <title>Gestion de Clients</title>
