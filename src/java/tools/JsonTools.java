@@ -87,7 +87,7 @@ public class JsonTools {
             JsonArray ja = gson.fromJson(reader, JsonArray.class);
             for (JsonElement je : ja)
             {
-                Product prod = gson.fromJson(reader, Product.class);
+                Product prod = gson.fromJson(je, Product.class);
                 myList.add(prod);
             }
 
