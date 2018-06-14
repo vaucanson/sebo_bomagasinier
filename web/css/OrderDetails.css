@@ -41,3 +41,9 @@ footer {
         padding-top : 3px;
         padding-bottom : 3px;
 }
+
+div{
+    margin-top : 20px;
+    margin-right: 30px;
+    display: inline-block;
+}

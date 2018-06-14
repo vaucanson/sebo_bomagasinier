@@ -29,7 +29,18 @@
                     out.print("<td>" + o.getCategory() + "</td>");
                     out.print("<td>" + o.getQuantityOrder()+ "</td>");
                     out.print("<td>" + o.getQuantityStock()+ "</td>");
+                    out.print("</tr>");
             }
+            if (list.size() == 0)
+            {
+                out.print("<td> ************* </td>");
+                out.print("<td> ************* </td>");
+                out.print("<td> Aucun article </td>");
+                out.print("<td> ************* </td>");
+                out.print("<td> ************* </td>");
+            }
+            
+            
            }
            catch (Exception e)
            {
@@ -75,11 +86,16 @@
              </thead>
              
              <tbody>
-                 <tr>
-                <%fillTab(out, 2);%>
-            </tr>
+                     <%fillTab(out, Integer.parseInt(request.getParameter("id")));%>
             </tbody>
          </table>
+            
+            <div>
+                <button class='btn'>Valider la Commande</button>
+            </div>
+            <div>
+                <button class='btn'>Annuler la Commande</button>
+            </div>
             
             </main>
             
