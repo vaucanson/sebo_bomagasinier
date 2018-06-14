@@ -4,7 +4,72 @@
     Author     : boilleau
 --%>
 
+<%@page import="java.net.URL"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="dto.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%! public void printProductToHtml(Product prod, JspWriter out) {
+    
+    StringBuilder sb = new StringBuilder("");
+    
+    sb.append("<form action=\"result\" method=\"get\">");
+    sb.append("<div class=\"row\">");
+    sb.append("<div class=\"col-lg-1\">"+ prod.getId());
+    sb.append("<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getId() +"\" />");
+    sb.append("</div>");
+    sb.append("<div class=\"col-lg-1\">"+ prod.getName() +"</div>");
+    sb.append("<div class=\"col-lg-1\">catégorie</div>");
+    sb.append("<div class=\"col-lg-1\">date commande</div>");
+    sb.append("<div class=\"col-lg-1\">qté commandée</div>");
+    sb.append("<div class=\"col-lg-1\">");
+    sb.append("<input type=\"number\" name=\"qte_product\" value=\"0\" />");
+    sb.append("</div>");
+    sb.append("<div class=\"col-lg-1\">");
+    sb.append("<input type=\"submit\" class=\"bouton_envoyer\" value=\"ENREGISTRER\" />");
+    sb.append("</div>");
+    sb.append("</div>");
+    sb.append("</form>");
+    
+    try {
+        out.print(sb.toString());
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    
+}
+
+%>
+
+
+
+
+<%! public void remplirTableau(JspWriter out) {
+    
+    List<Product> listProds = new ArrayList<Product>();
+    try
+    {
+     URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getstock");
+
+     listProds = tools.JsonTools.getProductsFromJson(url);
+     for (Product prod : listProds)
+     {
+         printProductToHtml(prod, out);
+     }
+    }
+    catch (Exception e)
+    {
+        System.out.print(e.getMessage());
+    }
+    
+}
+
+
+
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +80,19 @@
     <title>Produits en attente de réception</title>
 </head>
 <body>
+    <header>
+        <h1>Gestion des Commandes Clients</h1>
+            <nav>
+                <a href="#">Accueil</a>
+                <a href="#">Consultation Stock</a>
+                <a href="#">aaa</a>
+                <a href="#">nnnnn</a>
+                <a href="#">Nbbbbbre</a>
+            </nav>
+    </header>
+
+    <main>
+    
         
     <div class="container" id="tableau_produits" >
         
@@ -28,60 +106,13 @@
             <div class="col-lg-1">enregistrer</div>
         </div>
 
-        <form action="result" method="get">
-            <div class="row">
-                    <div class="col-lg-1">45432
-                        <input type="hidden" name="id_un" value="45432" />
-                    </div>
-                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
-                    <div class="col-lg-1">death metal</div>
-                    <div class="col-lg-1">2018/12/04</div>
-                    <div class="col-lg-1">56</div>
-                    <div class="col-lg-1">
-                        <input type="number" name="qte_un" value="0" />
-                    </div>
-                    <div class="col-lg-1">
-                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
-                    </div>
-            </div>
-        </form>
-
-        <form action="result" method="get">
-            <div class="row">
-                    <div class="col-lg-1">45432
-                        <input type="hidden" name="id_deux" value="45432" />
-                    </div>
-                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
-                    <div class="col-lg-1">death metal</div>
-                    <div class="col-lg-1">2018/12/04</div>
-                    <div class="col-lg-1">56</div>
-                    <div class="col-lg-1">
-                        <input type="number" name="qte_deux" value="0" />
-                    </div>
-                    <div class="col-lg-1">
-                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
-                    </div>
-            </div>
-        </form>
-
-        <form action="result" method="get">
-            <div class="row">
-                    <div class="col-lg-1">45432
-                        <input type="hidden" name="id_trois" value="45432" />
-                    </div>
-                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
-                    <div class="col-lg-1">death metal</div>
-                    <div class="col-lg-1">2018/12/04</div>
-                    <div class="col-lg-1">56</div>
-                    <div class="col-lg-1">
-                        <input type="number" name="qte_trois" value="0" />
-                    </div>
-                    <div class="col-lg-1">
-                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
-                    </div>
-            </div>
-        </form>
+        <% remplirTableau(out);%>
 
     </div>
+        
+        
+        
+        
+    </main>
 </body>
 </html>
