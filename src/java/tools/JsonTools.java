@@ -11,14 +11,12 @@ import com.google.gson.JsonElement;
 import dto.ClientOrder;
 import dto.OrderLineDetails;
 import dto.Product;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.json.Json;
-import javax.json.JsonArray;
 import jdk.nashorn.api.scripting.URLReader;
 
 /**
@@ -33,13 +31,13 @@ public class JsonTools {
          List<ClientOrder> list = new ArrayList<>();
 
         try (Reader reader = new URLReader(url)) {
-            //création  un reader Json qui va analyser le retour de l'url
+            //crï¿½ation  un reader Json qui va analyser le retour de l'url
             javax.json.JsonReader jsonReader = Json.createReader(reader);
             //on demande au reader d'extraire un tableau json
-            JsonArray arr = jsonReader.readArray();
+             javax.json.JsonArray arr = jsonReader.readArray();
             for (int i = 0; i < arr.size(); i++)
             {
-                // pour chaque élément du tableau, qui est un JsonObject, on utilise Gson pour en faire un objet métier
+                // pour chaque ï¿½lï¿½ment du tableau, qui est un JsonObject, on utilise Gson pour en faire un objet mï¿½tier
                 ClientOrder co = gson.fromJson(arr.getJsonObject(i).toString(), ClientOrder.class);
                 list.add(co);
             }
@@ -58,13 +56,13 @@ public class JsonTools {
          List<OrderLineDetails> list = new ArrayList<>();
 
         try (Reader reader = new URLReader(url)) {
-            //création  un reader Json qui va analyser le retour de l'url
+            //crï¿½ation  un reader Json qui va analyser le retour de l'url
             javax.json.JsonReader jsonReader = Json.createReader(reader);
             //on demande au reader d'extraire un tableau json
-            JsonArray arr = jsonReader.readArray();
+            javax.json.JsonArray arr = jsonReader.readArray();
             for (int i = 0; i < arr.size(); i++)
             {
-                // pour chaque élément du tableau, qui est un JsonObject, on utilise Gson pour en faire un objet métier
+                // pour chaque ï¿½lï¿½ment du tableau, qui est un JsonObject, on utilise Gson pour en faire un objet mï¿½tier
                 OrderLineDetails co = gson.fromJson(arr.getJsonObject(i).toString(), OrderLineDetails.class);
                 list.add(co);
             }
