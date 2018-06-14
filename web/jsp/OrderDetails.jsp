@@ -39,6 +39,8 @@
                 out.print("<td> ************* </td>");
                 out.print("<td> ************* </td>");
             }
+            
+            
            }
            catch (Exception e)
            {
@@ -84,11 +86,16 @@
              </thead>
              
              <tbody>
-                 <tr>
-                <%fillTab(out, 31);%>
-            </tr>
+                     <%fillTab(out, Integer.parseInt(request.getParameter("id")));%>
             </tbody>
          </table>
+            
+            <div id='btnConfirm'>
+                <button class='btn'>Valider la Commande</button>
+            </div>
+            <div id='btnCancel'>
+                <button class='btn'>Annuler la Commande</button>
+            </div>
             
             </main>
             
