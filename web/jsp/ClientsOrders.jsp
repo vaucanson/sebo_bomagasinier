@@ -22,7 +22,6 @@
             list = tools.JsonTools.getClientOrdersFromJson(urlState);
 
             for (ClientOrder c : list) {
-                    out.print("<tr>");
                     out.print("<td>" + c.getClient().getId() + "</td>");
                     out.print("<td>" + c.getId() + "</td>");
                     out.print("<td>" + c.getOrderDate() + "</td>");

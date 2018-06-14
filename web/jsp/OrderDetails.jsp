@@ -29,6 +29,15 @@
                     out.print("<td>" + o.getCategory() + "</td>");
                     out.print("<td>" + o.getQuantityOrder()+ "</td>");
                     out.print("<td>" + o.getQuantityStock()+ "</td>");
+                    out.print("</tr>");
+            }
+            if (list.size() == 0)
+            {
+                out.print("<td> ************* </td>");
+                out.print("<td> ************* </td>");
+                out.print("<td> Aucun article </td>");
+                out.print("<td> ************* </td>");
+                out.print("<td> ************* </td>");
             }
            }
            catch (Exception e)
@@ -76,7 +85,7 @@
              
              <tbody>
                  <tr>
-                <%fillTab(out, 2);%>
+                <%fillTab(out, 31);%>
             </tr>
             </tbody>
          </table>
