@@ -27,7 +27,8 @@
                     out.print("<td>" + c.getId() + "</td>");
                     out.print("<td>" + c.getOrderDate() + "</td>");
                     out.print("<td>blabla</td>");
-                    out.print("<td><button type=\"button\" class=\"btn\">Details</button></td>");
+                    out.print("<td><a href=\"http://localhost:8080/sebo_bomagasinier/jsp/OrderDetails.jsp?id=" + c.getId() + "\"><button type=\"button\" class=\"btn\">Details</button></a></td>");
+                    out.print("</tr>");
             }
            }
            catch (Exception e)
@@ -75,16 +76,15 @@
              </thead>
              
              <tbody>
-                 <tr>
+
                 <%fillTab(out, 31);%>
-            </tr>
+
             
             <tr>
                 <%fillTab(out, 32);%>
             </tr>
             </tbody>
          </table>
-            
             </main>
             
             <footer>   © Sebo Corporation - Gestion Commandes Clients</footer>

@@ -22,27 +22,6 @@ body {
     margin : 0 auto;
 }
 
-.meilleuresVentes {
-    border : 1px solid grey;
-    display: inline-block;
-    width: 30%;
-    text-align: center;
-}
-
-#accueilVentes {
-    display : flex;
-    justify-content : space-between;
-}
-
-#panier {
-    float : right;
-    width : 150px;
-}
-#panier img {
-    max-width: 30%;
-    
-}
-
 img {
 	max-width: 100%;
 }
