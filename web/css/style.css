@@ -111,6 +111,8 @@ header {
 	background-position: center bottom;
 	background-color: #97b3e2;
 	color: white;
+        text-align: center;
+        margin-bottom: 50px;
 }
 
 #logo {
@@ -206,11 +208,14 @@ nav{
 
 /* FOOTER */
 footer {
-	margin-top: 50px;
-	background-image: url(../img/bg.jpg);
+        position : relative;
+        margin-top : 50px;
+	bottom : 0;
+        width: 100%;
+        height: 5%;
 	background-repeat: no-repeat;
 	background-position: center bottom;
-	background-color: #96B011;
+	background-color: #97b3e2;
 	color: white;
 }
 

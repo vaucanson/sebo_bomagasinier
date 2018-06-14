@@ -34,3 +34,10 @@ tbody:before{
 th{
     padding : 15px;
 }
+
+footer {
+        position : absolute;
+        height: 2%;
+        padding-top : 3px;
+        padding-bottom : 3px;
+}
