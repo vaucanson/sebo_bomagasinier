@@ -7,73 +7,81 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/Reception.css">
-        <title>Produits en attente de réception</title>
-    </head>
-    <body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/Reception.css">
+    <title>Produits en attente de réception</title>
+</head>
+<body>
         
-        <table>
-            <thead></thead>
-        </table>
+    <div class="container" id="tableau_produits" >
         
-        
-<table>
-   <caption>Réception des produits livrés</caption>
-   <thead> <!-- En-tête du tableau -->
-       <tr>
-           <th>Id</th>
-           <th>Nom</th>
-           <th>Catégorie</th>
-           <th>Date de commande</th>
-           <th>Quantité commandée</th>
-           <th>Quantité reçue</th>
-           <th>Enregistrer</th>
-           
-           
-           
+        <!-- la ligne d'entête -->
+        <div class="row" id='ligne_entete'>
+            <div class="col-lg-1">Id</div>
+            <div class="col-lg-1">Nom</div>
+            <div class="col-lg-1">Date de commande</div>
+            <div class="col-lg-1">qté commandée</div>
+            <div class="col-lg-1">qté reçue</div>
+            <div class="col-lg-1">enregistrer</div>
+        </div>
 
+        <form action="result" method="get">
+            <div class="row">
+                    <div class="col-lg-1">45432
+                        <input type="hidden" name="id_un" value="45432" />
+                    </div>
+                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
+                    <div class="col-lg-1">death metal</div>
+                    <div class="col-lg-1">2018/12/04</div>
+                    <div class="col-lg-1">56</div>
+                    <div class="col-lg-1">
+                        <input type="number" name="qte_un" value="0" />
+                    </div>
+                    <div class="col-lg-1">
+                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
+                    </div>
+            </div>
+        </form>
 
-       </tr>
-   </thead>
-   <tbody> <!-- Corps du tableau -->
-   <form name="formligneun" id="formligneun" action="result" method="post">
-       <tr>
-           <td>15643</td>
-           <td>Lorie « Ta meilleure Amie »</td>
-           <td>Death Metal</td>
-           <td>04/06/2018</td>
-           <td>15</td>
-           <td>-</td>
-           <td><input type="submit" value="Envoyer" /></td>
-       </tr>
-</form>
-       <tr>
-           <td>15643</td>
-           <td>Lorie « Ta meilleure Amie »</td>
-           <td>Death Metal</td>
-           <td>04/06/2018</td>
-           <td>15</td>
-           <td>-</td>
-           <td><button>ENREGISTRER</button></td>
-       </tr>
-       <tr>
-           <td>15643</td>
-           <td>Lorie « Ta meilleure Amie »</td>
-           <td>Death Metal</td>
-           <td>04/06/2018</td>
-           <td>15</td>
-           <td>-</td>
-           <td><button>ENREGISTRER</button></td>
-       </tr>
-   </tbody>
-</table>
-        
-        
-        
-        
-    </body>
+        <form action="result" method="get">
+            <div class="row">
+                    <div class="col-lg-1">45432
+                        <input type="hidden" name="id_deux" value="45432" />
+                    </div>
+                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
+                    <div class="col-lg-1">death metal</div>
+                    <div class="col-lg-1">2018/12/04</div>
+                    <div class="col-lg-1">56</div>
+                    <div class="col-lg-1">
+                        <input type="number" name="qte_deux" value="0" />
+                    </div>
+                    <div class="col-lg-1">
+                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
+                    </div>
+            </div>
+        </form>
+
+        <form action="result" method="get">
+            <div class="row">
+                    <div class="col-lg-1">45432
+                        <input type="hidden" name="id_trois" value="45432" />
+                    </div>
+                    <div class="col-lg-1">Lorie « ta meilleure amie »</div>
+                    <div class="col-lg-1">death metal</div>
+                    <div class="col-lg-1">2018/12/04</div>
+                    <div class="col-lg-1">56</div>
+                    <div class="col-lg-1">
+                        <input type="number" name="qte_trois" value="0" />
+                    </div>
+                    <div class="col-lg-1">
+                            <input type="submit" class="bouton_envoyer" value="ENREGISTRER" />
+                    </div>
+            </div>
+        </form>
+
+    </div>
+</body>
 </html>
