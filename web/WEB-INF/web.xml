@@ -26,7 +26,7 @@
     <!-- MAPPING -->
     <servlet-mapping>
         <servlet-name>index</servlet-name>
-        <url-pattern>/accueil</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>réception</servlet-name>
@@ -39,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>orderdetails</servlet-name>
         <url-pattern>/orderdetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>réception</servlet-name>
+        <url-pattern>/result</url-pattern>
     </servlet-mapping>
 
     <session-config>

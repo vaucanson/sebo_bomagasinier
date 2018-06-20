@@ -29,10 +29,10 @@
 %>
 
 <%! private void printProductToHtml(Product prod, JspWriter out, String bgColorClass) {
-    
+    // l'attribut 'action' du formulaire
+    String formAction = "result";
     StringBuilder sb = new StringBuilder("");
-    
-    sb.append("<form action=\"result\" method=\"get\">\n");
+    sb.append("<form action=\""+ formAction +"\" method=\"get\">\n");
     sb.append("\t<div class=\"row "+ bgColorClass +"\">\n");
     sb.append("\t<div class=\"col-lg-1\">"+ prod.getId() + "\n");
     sb.append("\t\t<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getId() +"\" />\n");
