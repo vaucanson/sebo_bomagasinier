@@ -11,6 +11,7 @@
 <%@page import="dto.ClientOrder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.net.URL"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
 
     <%! public void fillTab(JspWriter out, int state)
        {
@@ -26,7 +27,11 @@
                     out.print("<td>" + c.getClient().getId() + "</td>");
                     out.print("<td>" + c.getId() + "</td>");
                     out.print("<td>" + c.getOrderDate() + "</td>");
-                    out.print("<td>blabla</td>");
+                    
+                    if (state ==31){
+                    out.print("<td>Complet</td>");}
+                    else
+                    {out.print("<td>Incomplet</td>");}
                     out.print("<td><a href=\"http://localhost:8080/sebo_bomagasinier/jsp/OrderDetails.jsp?id=" + c.getId() + "\"><button type=\"button\" class=\"btn\">Details</button></a></td>");
                     out.print("</tr>");
             }
@@ -47,22 +52,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ClientsOrders.css">
-        <title>Gestion de Clients</title>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/TabStyle.css">
+        <title>Gestion des Commandes Clients</title>
     </head>
     <body>
         <header>
             
             <h1>Gestion des Commandes Clients</h1>
-            
-            <!-- factoriser la nav -->
-                <nav>
-                    <a href="#">Accueil</a>
-                    <a href="#">Consultation Stock</a>
-                    <a href="#">aaa</a>
-                    <a href="#">nnnnn</a>
-                    <a href="#">Nbbbbbre</a>
-                </nav>
+           
+            <tag:menu />
+
         </header>
         
         <main>

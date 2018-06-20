@@ -68,8 +68,4 @@ public class OrderLineDetails implements Serializable{
     public void setQuantityStock(int quantityStock) {
         this.quantityStock = quantityStock;
     }
-   
-   
-    
-
 }
