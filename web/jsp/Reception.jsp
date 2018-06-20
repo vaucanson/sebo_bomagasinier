@@ -4,6 +4,7 @@
     Author     : boilleau
 --%>
 
+
 <%@page import="java.net.URL"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -16,12 +17,11 @@
 }
 %>
 
-
 <%! private void printProductToHtml(Product prod, JspWriter out, boolean fond) { 
     
     // choix de la classe donnant une couleur de fond
     // en fonction du booléen donné
-    String backgroundColorClass = fond ? "bgyes" : "bgno";
+    String backgroundColorClass = fond ? "bgwhite" : "bglightblue";
     
     // appel de la vraie fonction
     printProductToHtml(prod, out, backgroundColorClass);
@@ -29,10 +29,10 @@
 %>
 
 <%! private void printProductToHtml(Product prod, JspWriter out, String bgColorClass) {
-    
+    // l'attribut 'action' du formulaire
+    String formAction = "result";
     StringBuilder sb = new StringBuilder("");
-    
-    sb.append("<form action=\"result\" method=\"get\">\n");
+    sb.append("<form action=\""+ formAction +"\" method=\"get\">\n");
     sb.append("\t<div class=\"row "+ bgColorClass +"\">\n");
     sb.append("\t<div class=\"col-lg-1\">"+ prod.getId() + "\n");
     sb.append("\t\t<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getId() +"\" />\n");
@@ -73,7 +73,6 @@
          printProductToHtml(prod, out, fond);
          
          // inversion de la valeur du booléen
-         // équivaut à fond = !fond;
          fond ^= true;
      }
     }
@@ -112,7 +111,7 @@
     <div class="container" id="tableau_produits" >
         
         <!-- la ligne d'entête -->
-        <div class="row bgentete" id='ligne_entete'>
+        <div class="row bgdayhblue" id='ligne_entete'>
             <div class="col-lg-1">Id</div>
             <div class="col-lg-4">Nom</div>
             <div class="col-lg-1">Catégorie</div>
