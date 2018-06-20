@@ -11,7 +11,7 @@
         <jsp-file>jsp/index.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>réception</servlet-name>
+        <servlet-name>reception</servlet-name>
         <jsp-file>jsp/Reception.jsp</jsp-file>
     </servlet>
     <servlet>
@@ -30,6 +30,10 @@
         <servlet-name>ordertreatement</servlet-name>
         <servlet-class>servlets.OrderTreatementController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>result</servlet-name>
+        <servlet-class>servlets.OrderedProductsController</servlet-class>
+    </servlet>
     
     
     <!-- MAPPING -->
@@ -38,8 +42,8 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>réception</servlet-name>
-        <url-pattern>/réception</url-pattern>
+        <servlet-name>reception</servlet-name>
+        <url-pattern>/reception</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>clientsorders</servlet-name>
@@ -50,7 +54,7 @@
         <url-pattern>/orderdetails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>réception</servlet-name>
+        <servlet-name>result</servlet-name>
         <url-pattern>/result</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

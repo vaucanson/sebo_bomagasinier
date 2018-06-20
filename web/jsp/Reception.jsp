@@ -35,7 +35,7 @@
     sb.append("<form action=\""+ formAction +"\" method=\"get\">\n");
     sb.append("\t<div class=\"row "+ bgColorClass +"\">\n");
     sb.append("\t<div class=\"col-lg-1\">"+ prod.getReference()+ "\n");
-    sb.append("\t\t<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getReference() +"\" />\n");
+    sb.append("\t\t<input type=\"hidden\" name=\"ref_product\" value=\""+ prod.getReference() +"\" />\n");
     sb.append("\t</div>\n");
     sb.append("\t<div class=\"col-lg-4\">"+ prod.getName() +"</div>\n");
     sb.append("\t<div class=\"col-lg-1\">"+ prod.getCategory() +"</div>\n");
@@ -45,7 +45,7 @@
     sb.append("\t\t<input type=\"submit\" class=\"bouton_envoyer\" value=\"OK\" />\n");
     sb.append("\t</div>\n");
     sb.append("\t<div class=\"col-lg-2\">\n");
-    sb.append("\t\t<input type=\"number\" name=\"qte_product\" value=\"0\" />\n");
+    sb.append("\t\t<input type=\"number\" name=\"ordered_quantity\" value=\"0\" />\n");
     sb.append("\t</div>\n");
     sb.append("\t</div>\n");
     sb.append("</form>\n");
@@ -64,7 +64,7 @@
     List<OrderedProduct> listProds = new ArrayList<OrderedProduct>();
     try
     {
-     URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getstock");
+     URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getorderedproducts");
 
      listProds = tools.JsonTools.getOrderedProductsFromJson(url);
      boolean fond = true;
@@ -124,7 +124,6 @@
         <% remplirTableau(out);%>
 
     </div>
-        
         
         
         
