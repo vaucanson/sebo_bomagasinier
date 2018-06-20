@@ -2,11 +2,25 @@ header{
     text-align: center;
 }
 
-table{
-    border: 1px solid black;
+
+
+.bgyes{
+    background-color: white;
+}
+
+.bgno{
+    background-color: #cce5ff;
 }
 
 
-td {
-    border: 1px solid black;
+.bgentete{
+    background-color: #97b3e2;
 }
+
+
+
+
+
+
+
+
