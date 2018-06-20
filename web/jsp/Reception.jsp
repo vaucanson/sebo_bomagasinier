@@ -64,7 +64,7 @@
     List<OrderedProduct> listProds = new ArrayList<OrderedProduct>();
     try
     {
-     URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getstock");
+     URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getorderedproducts");
 
      listProds = tools.JsonTools.getOrderedProductsFromJson(url);
      boolean fond = true;
@@ -124,7 +124,6 @@
         <% remplirTableau(out);%>
 
     </div>
-        
         
         
         
