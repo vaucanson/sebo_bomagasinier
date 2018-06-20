@@ -30,6 +30,10 @@
         <servlet-name>ordertreatement</servlet-name>
         <servlet-class>servlets.OrderTreatementController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>result</servlet-name>
+        <servlet-class>jsp/Result.jsp</servlet-class>
+    </servlet>
     
     
     <!-- MAPPING -->
@@ -50,7 +54,7 @@
         <url-pattern>/orderdetails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>réception</servlet-name>
+        <servlet-name>result</servlet-name>
         <url-pattern>/result</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
