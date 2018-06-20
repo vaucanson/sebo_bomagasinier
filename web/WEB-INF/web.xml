@@ -23,6 +23,10 @@
         <servlet-name>ordertreatement</servlet-name>
         <servlet-class>servlets.OrderTreatementController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>suppliercontroller</servlet-name>
+        <servlet-class>servlets.SupplierOrderController</servlet-class>
+    </servlet>
     
     
     <!-- MAPPING -->
@@ -45,6 +49,10 @@
     <servlet-mapping>
         <servlet-name>ordertreatement</servlet-name>
         <url-pattern>/ordertreatement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>suppliercontroller</servlet-name>
+        <url-pattern>/suppliercontroller</url-pattern>
     </servlet-mapping>
     
     

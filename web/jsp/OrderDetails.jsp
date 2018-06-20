@@ -92,7 +92,7 @@
 
             </tbody>
          </table>
-                     <form action="../ordertreatement" method="post">
+            <form action="../ordertreatement" method="post">
             <div>
                 <input type="hidden" name="pm" value=<%=request.getParameter("id")%> />
                 <input type="submit" name="button" class="btn" value="Valider la Commande" /> 
