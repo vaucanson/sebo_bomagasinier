@@ -11,7 +11,7 @@
         <jsp-file>jsp/index.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>réception</servlet-name>
+        <servlet-name>reception</servlet-name>
         <jsp-file>jsp/Reception.jsp</jsp-file>
     </servlet>
     <servlet>
@@ -32,7 +32,7 @@
     </servlet>
     <servlet>
         <servlet-name>result</servlet-name>
-        <servlet-class>jsp/Result.jsp</servlet-class>
+        <servlet-class>servlets.OrderedProductsController</servlet-class>
     </servlet>
     
     
@@ -42,8 +42,8 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>réception</servlet-name>
-        <url-pattern>/réception</url-pattern>
+        <servlet-name>reception</servlet-name>
+        <url-pattern>/reception</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>clientsorders</servlet-name>

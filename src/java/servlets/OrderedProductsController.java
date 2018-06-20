@@ -35,11 +35,13 @@ public class OrderedProductsController extends HttpServlet
         int reference = Integer.parseInt(request.getParameter("ref_product"));
         int orderedQuantity = Integer.parseInt(request.getParameter("ordered_quantity"));
         
-        HttpSession masess = request.getSession(true);
-        masess.setAttribute("ref", reference);
-        masess.setAttribute("qty", orderedQuantity);
+//        HttpSession masess = request.getSession(true);
+//        masess.setAttribute("ref", reference);
+//        masess.setAttribute("qty", orderedQuantity);
         
-        request.getRequestDispatcher("/réception").forward(request, response);
+        Bean.OrderedProductsManager.changeStockQuantity(reference, orderedQuantity);
+        
+        request.getRequestDispatcher("/reception").forward(request, response);
     }
 
     @Override
