@@ -5,12 +5,16 @@
 --%>
 
 
+<%@page import="java.net.MalformedURLException"%>
+<%@page import="java.io.OutputStreamWriter"%>
+<%@page import="java.net.HttpURLConnection"%>
 <%@page import="java.net.URL"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="dto.ClientOrder"%>
 <%@page import="dto.OrderLineDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
 
 <%! public void fillTab(JspWriter out, int idOrder)
        {
@@ -47,7 +51,6 @@
                System.out.print(e.getMessage());
            }
        }
-
 %>
 
 
@@ -57,25 +60,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/OrderDetails.css">
-        <title>Gestion de Clients</title>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/TabStyle.css">  
+        <title>Détails de la Commande n° <%=request.getParameter("id") %></title>
     </head>
     <body>
         <header>
             
             <h1>Détails de la commande</h1>
             
-            <!-- factoriser la nav -->
-                <nav>
-                    <a href="#">Accueil</a>
-                    <a href="#">Consultation Stock</a>
-                    <a href="#">aaa</a>
-                    <a href="#">nnnnn</a>
-                    <a href="#">Nbbbbbre</a>
-                </nav>
+                   <tag:menu />
+
         </header>
         
         <main>
+            <span>Commande n° <%=request.getParameter("id") %></span>
+            
         <table>
             <thead>
                 <th>Identifiant Article</th>
@@ -84,21 +83,26 @@
                 <th>Quantité Commandée</th>
                 <th>Quantité en Stock</th>
              </thead>
-             
+                          
              <tbody>
+                 
+                    
                      <%fillTab(out, Integer.parseInt(request.getParameter("id")));%>
+                     
+
             </tbody>
          </table>
-            
+                     <form action="../ordertreatement" method="post">
             <div>
-                <button class='btn'>Valider la Commande</button>
+                <input type="hidden" name="pm" value=<%=request.getParameter("id")%> />
+                <input type="submit" name="button" class="btn" value="Valider la Commande" /> 
             </div>
             <div>
-                <button class='btn'>Annuler la Commande</button>
+                <input type="submit" name="button" class="btn" value="Annuler la Commande" />
             </div>
-            
+            </form>
             </main>
-            
+                
             <footer>   © Sebo Corporation - Gestion Commandes Clients</footer>
     </body>
 </html>

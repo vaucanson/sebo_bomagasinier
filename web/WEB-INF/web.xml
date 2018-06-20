@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
     
         <!--   SERVLETS   -->
     <servlet>
@@ -22,7 +18,16 @@
         <servlet-name>orderdetails</servlet-name>
         <jsp-file>jsp/OrderDetails.jsp</jsp-file>
     </servlet>
-
+    <servlet>
+        <servlet-name>stock</servlet-name>
+        <jsp-file>jsp/Stock.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ordertreatement</servlet-name>
+        <servlet-class>servlets.OrderTreatementController</servlet-class>
+    </servlet>
+    
+    
     <!-- MAPPING -->
     <servlet-mapping>
         <servlet-name>index</servlet-name>
@@ -44,7 +49,16 @@
         <servlet-name>réception</servlet-name>
         <url-pattern>/result</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>stock</servlet-name>
+        <url-pattern>/stock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ordertreatement</servlet-name>
+        <url-pattern>/ordertreatement</url-pattern>
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
