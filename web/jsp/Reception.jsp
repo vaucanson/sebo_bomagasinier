@@ -8,16 +8,16 @@
 <%@page import="java.net.URL"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="dto.Product"%>
+<%@page import="dto.OrderedProduct"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<%! private void printProductToHtml(Product prod, JspWriter out) {
+<%! private void printProductToHtml(OrderedProduct prod, JspWriter out) {
     printProductToHtml(prod, out, true);
 }
 %>
 
-<%! private void printProductToHtml(Product prod, JspWriter out, boolean fond) { 
+<%! private void printProductToHtml(OrderedProduct prod, JspWriter out, boolean fond) { 
     
     // choix de la classe donnant une couleur de fond
     // en fonction du booléen donné
@@ -28,19 +28,19 @@
 }     
 %>
 
-<%! private void printProductToHtml(Product prod, JspWriter out, String bgColorClass) {
+<%! private void printProductToHtml(OrderedProduct prod, JspWriter out, String bgColorClass) {
     // l'attribut 'action' du formulaire
     String formAction = "result";
     StringBuilder sb = new StringBuilder("");
     sb.append("<form action=\""+ formAction +"\" method=\"get\">\n");
     sb.append("\t<div class=\"row "+ bgColorClass +"\">\n");
-    sb.append("\t<div class=\"col-lg-1\">"+ prod.getId() + "\n");
-    sb.append("\t\t<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getId() +"\" />\n");
+    sb.append("\t<div class=\"col-lg-1\">"+ prod.getReference()+ "\n");
+    sb.append("\t\t<input type=\"hidden\" name=\"id_product\" value=\""+ prod.getReference() +"\" />\n");
     sb.append("\t</div>\n");
     sb.append("\t<div class=\"col-lg-4\">"+ prod.getName() +"</div>\n");
-    sb.append("\t<div class=\"col-lg-1\">"+ prod.getCategory().getName() +"</div>\n");
-    sb.append("\t<div class=\"col-lg-2\">"+ prod.getSupplier().getName() +"</div>\n");
-    sb.append("\t<div class=\"col-lg-1\">15</div>\n");
+    sb.append("\t<div class=\"col-lg-1\">"+ prod.getCategory() +"</div>\n");
+    sb.append("\t<div class=\"col-lg-2\">"+ prod.getSupplier() +"</div>\n");
+    sb.append("\t<div class=\"col-lg-1\">"+ prod.getOrderedQuantity() +"</div>\n");
     sb.append("\t<div class=\"col-lg-1\">\n");
     sb.append("\t\t<input type=\"submit\" class=\"bouton_envoyer\" value=\"OK\" />\n");
     sb.append("\t</div>\n");
@@ -61,14 +61,14 @@
 
 <%! private void remplirTableau(JspWriter out) {
     
-    List<Product> listProds = new ArrayList<Product>();
+    List<OrderedProduct> listProds = new ArrayList<OrderedProduct>();
     try
     {
      URL url = new URL("http://localhost:8080/sebo_backendnew/api/stockmanager/getstock");
 
-     listProds = tools.JsonTools.getProductsFromJson(url);
+     listProds = tools.JsonTools.getOrderedProductsFromJson(url);
      boolean fond = true;
-     for (Product prod : listProds)
+     for (OrderedProduct prod : listProds)
      {
          printProductToHtml(prod, out, fond);
          
@@ -112,7 +112,7 @@
         
         <!-- la ligne d'entête -->
         <div class="row bgdayhblue" id='ligne_entete'>
-            <div class="col-lg-1">Id</div>
+            <div class="col-lg-1">Référence</div>
             <div class="col-lg-4">Nom</div>
             <div class="col-lg-1">Catégorie</div>
             <div class="col-lg-2">Fournisseur</div>

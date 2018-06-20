@@ -10,6 +10,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import dto.ClientOrder;
 import dto.OrderLineDetails;
+import dto.OrderedProduct;
 import dto.Product;
 import java.io.IOException;
 import java.io.Reader;
@@ -76,7 +77,37 @@ public class JsonTools {
     }
     
     
+    /**
+     * 
+     * @param url
+     * @return 
+     */
+    public static List<OrderedProduct> getOrderedProductsFromJson(URL url) {
+        Gson gson = new Gson();
+        List<OrderedProduct> myList = new ArrayList<OrderedProduct>();
+        
+        try (Reader reader = new URLReader(url)) {
+
+            // Convert JSON to Java Object
+            JsonArray ja = gson.fromJson(reader, JsonArray.class);
+            for (JsonElement je : ja)
+            {
+                OrderedProduct prod = gson.fromJson(je, OrderedProduct.class);
+                myList.add(prod);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return myList;
+    }
     
+    /**
+     * 
+     * @param url
+     * @return 
+     */
     public static List<Product> getProductsFromJson(URL url) {
         Gson gson = new Gson();
         List<Product> myList = new ArrayList<Product>();
