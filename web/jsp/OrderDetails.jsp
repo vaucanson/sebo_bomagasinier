@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="tools.CommonTools"%>
 <%@page import="java.net.MalformedURLException"%>
 <%@page import="java.io.OutputStreamWriter"%>
 <%@page import="java.net.HttpURLConnection"%>
@@ -39,7 +40,7 @@
             {
                 out.print("<td> ************* </td>");
                 out.print("<td> ************* </td>");
-                out.print("<td> Aucun article </td>");
+                out.print("<td> Commande inexistante </td>");
                 out.print("<td> ************* </td>");
                 out.print("<td> ************* </td>");
             }
@@ -73,7 +74,15 @@
         </header>
         
         <main>
-            <span>Commande n° <%=request.getParameter("id") %></span>
+            <span><% 
+                    if (CommonTools.isInteger(request.getParameter("id"))) 
+                    {
+                       out.print("Commande n° " + request.getParameter("id"));
+                           }
+                    else
+                    {
+                        out.print("ERREUR");
+                           }%></span>
             
         <table>
             <thead>
@@ -87,12 +96,23 @@
              <tbody>
                  
                     
-                     <%fillTab(out, Integer.parseInt(request.getParameter("id")));%>
+                     <%
+                        
+                         if (CommonTools.isInteger(request.getParameter("id"))) 
+                    { 
+                        fillTab(out, Integer.parseInt(request.getParameter("id")));
+                    }
+                    else
+                        {
+                            %> <jsp:forward page="/clientsorders" /> <%
+                         }
+                         
+                     %>
                      
 
             </tbody>
          </table>
-                     <form action="../ordertreatement" method="post">
+            <form action="../ordertreatement" method="post">
             <div>
                 <input type="hidden" name="pm" value=<%=request.getParameter("id")%> />
                 <input type="submit" name="button" class="btn" value="Valider la Commande" /> 

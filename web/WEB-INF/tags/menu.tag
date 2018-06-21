@@ -13,6 +13,6 @@
 <%-- any content can be specified here e.g.: --%>
 <nav>
     <a href="/sebo_bomagasinier/index.jsp">Accueil</a>
-    <a href="/sebo_bomagasinier/jsp/ChooseSupplierOrderTask.jsp">Gestion des Stocks</a>
-    <a href="/sebo_bomagasinier/jsp/ChooseClientOrderTask.jsp">Commandes Client</a>
+    <a href="/sebo_bomagasinier/choosestocktask">Gestion des Stocks</a>
+    <a href="/sebo_bomagasinier/clientsorderstask">Commandes Client</a>
 </nav>

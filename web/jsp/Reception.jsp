@@ -10,6 +10,7 @@
 <%@page import="java.util.List"%>
 <%@page import="dto.OrderedProduct"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
 
 
 <%! private void printProductToHtml(OrderedProduct prod, JspWriter out) {
@@ -96,13 +97,7 @@
 <body>
     <header>
         <h1>Gestion des Commandes Clients</h1>
-            <nav>
-                <a href="#">Accueil</a>
-                <a href="#">Consultation Stock</a>
-                <a href="#">aaa</a>
-                <a href="#">nnnnn</a>
-                <a href="#">Nbbbbbre</a>
-            </nav>
+            <tag:menu />
     </header>
 
     <main>

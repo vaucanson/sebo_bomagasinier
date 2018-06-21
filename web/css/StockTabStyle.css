@@ -48,3 +48,8 @@ th{
 	background-color: #000;
 	color: white;
 }
+
+#validate{
+    width : 20%;
+    padding : 20px;
+}

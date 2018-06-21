@@ -21,10 +21,12 @@
            {
             URL urlState = new URL("http://172.16.153.29:8080/sebo_backendnew/api/productscatalogue/getlist/");
             list = tools.JsonTools.getProductsFromJson(urlState);
-
+            
+            
             
             for (Product p : list)
             {
+         
                 if (p.getStock() < p.getMinLimit())
                 {
                     out.print("<tr class=\"underLimit\">");
@@ -33,9 +35,14 @@
                     out.print("<td>" + p.getCategory().getName()+ "</td>");
                     out.print("<td>" + p.getStock() + "</td>");
                     out.print("<td>" + p.getMinLimit()+ "</td>");
-                    out.print("<td><input type=\"number\" name=\"product" + p.getId() + "\" min=\"1\"></td>");
-                    out.print("<td><a href=\"#\"><button type=\"button\" class=\"btn\">Commander</button></a></td>");
+                    out.print("<td><input type=\"number\" name=\"infos\" value=\"0\"/></td>");
+                    out.print("<td>"
+                            + "<input type=\"hidden\" name=\"infos\" value=" + p.getId() + " />"
+                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" />"
+                            + "</td>");
                     out.print("</tr>");
+                    
+         
                 }
             }
             
@@ -50,9 +57,13 @@
                     out.print("<td>" + p.getCategory().getName()+ "</td>");
                     out.print("<td>" + p.getStock() + "</td>");
                     out.print("<td>" + p.getMinLimit()+ "</td>");
-                    out.print("<td><input type=\"number\" name=\"product" + p.getId() + "\" min=\"1\"></td>");
-                    out.print("<td><a href=\"#\"><button type=\"button\" class=\"btn\">Commander</button></a></td>");
+                    out.print("<td><input type=\"number\" name=\"quantity"+p.getId()+"\" /></td>");
+                    out.print("<td>"
+                            + "<input type=\"hidden\" name=\"infos\" value=" + p.getId() + " />"
+                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" />"
+                            + "</td>");
                     out.print("</tr>");
+                    
                 }
             }            
            }
@@ -64,6 +75,7 @@
        }
 
 %>
+
 
 <!DOCTYPE html>
 <html>
@@ -82,6 +94,7 @@
     </header>
        
     <main>
+        <form action ="suppliercontroller" method ="post">
         <table>
             <thead>
                 <th>ID Article</th>
@@ -95,14 +108,14 @@
              
              <tbody>
 
-                
-
-            
             <tr>
                 <%fillTab(out);%>
             </tr>
             </tbody>
          </table>
+            </form>
+        <a href="http://localhost:8080/sebo_bomagasinier/jsp/ConfirmSupplierOrder.jsp"><button class="btn" id="validate">Valider</button></a>
+            
             </main>
             
             <footer>   © Sebo Corporation - Gestion Commandes Clients</footer>
