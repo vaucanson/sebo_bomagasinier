@@ -33,12 +33,26 @@ public class SupplierOrderController extends HttpServlet{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
-        String id = request.getParameter("id");
+       /* String id = request.getParameter("id");
         String quantity = request.getParameter("quantity" + id);
         System.out.println(quantity);
-        System.out.println(id);
+        System.out.println(id);*/
         
-        SupplierOrderBean.createLine(Integer.parseInt(id));
+        String[] str = request.getParameterValues("infos");
+        
+        for (int i = 0; i < str.length; i++)
+        {
+            if (!"0".equals(str[i]))
+            {
+                System.out.println("qt = " + str[i]);
+                i++;
+            }            
+        }
+
+
+        
+        
+//        SupplierOrderBean.createLine(Integer.parseInt(id));
         
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("stock");
@@ -56,6 +70,5 @@ public class SupplierOrderController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
     }
-    
     
 }

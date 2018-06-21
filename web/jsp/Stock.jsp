@@ -21,24 +21,28 @@
            {
             URL urlState = new URL("http://172.16.153.29:8080/sebo_backendnew/api/productscatalogue/getlist/");
             list = tools.JsonTools.getProductsFromJson(urlState);
-
+            
+            
             
             for (Product p : list)
             {
+         
                 if (p.getStock() < p.getMinLimit())
                 {
-                  /*  out.print("<tr class=\"underLimit\">");
+                    out.print("<tr class=\"underLimit\">");
                     out.print("<td>" + p.getId() + "</td>");
                     out.print("<td>" + p.getName() + "</td>");
                     out.print("<td>" + p.getCategory().getName()+ "</td>");
                     out.print("<td>" + p.getStock() + "</td>");
                     out.print("<td>" + p.getMinLimit()+ "</td>");
-                    out.print("<td><input type=\"number\" name=\"quantity"+p.getId()+"\" /></td>"
-                            + "<td><input type=\"hidden\" name=\"id"+p.getId()+"\" value=" + p.getId() + " />"
-                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" /></td>");
-                    out.print("</tr>");*/
+                    out.print("<td><input type=\"number\" name=\"infos\" value=\"0\"/></td>");
+                    out.print("<td>"
+                            + "<input type=\"hidden\" name=\"infos\" value=" + p.getId() + " />"
+                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" />"
+                            + "</td>");
+                    out.print("</tr>");
                     
-                    fillBoot(out, p);
+         
                 }
             }
             
@@ -47,18 +51,18 @@
                 
                 if (p.getStock() >= p.getMinLimit())
                 {
-                  /*  out.print("<tr class=\"overLimit\">");
+                    out.print("<tr class=\"overLimit\">");
                     out.print("<td>" + p.getId() + "</td>");
                     out.print("<td>" + p.getName() + "</td>");
                     out.print("<td>" + p.getCategory().getName()+ "</td>");
                     out.print("<td>" + p.getStock() + "</td>");
                     out.print("<td>" + p.getMinLimit()+ "</td>");
-                    out.print("<td><input type=\"number\" name=\"quantity\"></td>"
-                            + "<td><input type=\"hidden\" name=\"id\" value=" + p.getId() + "/>"
-                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" /></td>");
-                    out.print("</tr>");*/
-                    
-                    
+                    out.print("<td><input type=\"number\" name=\"quantity"+p.getId()+"\" /></td>");
+                    out.print("<td>"
+                            + "<input type=\"hidden\" name=\"infos\" value=" + p.getId() + " />"
+                            + "<input class=\"btn\" type=\"submit\" name= \"newSupplierOrderLine\" value=\"Commander\" />"
+                            + "</td>");
+                    out.print("</tr>");
                     
                 }
             }            
@@ -72,37 +76,6 @@
 
 %>
 
-<%! public void fillBoot(JspWriter out, Product p)
-{
-    StringBuilder sb = new StringBuilder("");
-
-    String bgColorClass ="";
-    
-    sb.append("<form action=\"result\" method=\"get\">");
-    sb.append("<div class=\"row "+ bgColorClass +"\">");
-    sb.append("<div class=\"col-lg-1\">"+ p.getId()+"</div>");
-    sb.append("<div class=\"col-lg-4\">"+ p.getName() +"</div>");
-    sb.append("<div class=\"col-lg-1\">"+ p.getCategory().getName() +"</div>");
-    sb.append("<div class=\"col-lg-1\">"+ p.getStock() +"</div>");
-    sb.append("<div class=\"col-lg-1\">"+ p.getMinLimit() +"</div>");
-    sb.append("<div class=\"col-lg-2\">");
-    sb.append("<input type=\"number\" name=\"qte_product\" value=\"0\" />");
-    sb.append("</div>");
-    sb.append("<div class=\"col-lg-1\">15</div>");
-    sb.append("<div class=\"col-lg-1\">");
-    sb.append("<input type=\"submit\" class=\"bouton_envoyer\" value=\"OK\" />");
-    sb.append("</div>");
-    sb.append("</div>");
-    sb.append("</form>");
-    
-    try {
-        out.print(sb.toString());
-    } catch (Exception ex) {
-        ex.printStackTrace();
-    }
-}
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -111,7 +84,6 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/StockTabStyle.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <title>Gestion des Stocks</title>
     </head>
     <body>
@@ -122,7 +94,7 @@
     </header>
        
     <main>
-        <form action ="../suppliercontroller" method ="post">
+        <form action ="suppliercontroller" method ="post">
         <table>
             <thead>
                 <th>ID Article</th>

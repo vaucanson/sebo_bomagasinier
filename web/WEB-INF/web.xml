@@ -15,6 +15,10 @@
         <jsp-file>jsp/Reception.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>clientsorderstask</servlet-name>
+        <jsp-file>jsp/ChooseClientOrderTask.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>clientsorders</servlet-name>
         <jsp-file>jsp/ClientsOrders.jsp</jsp-file>
     </servlet>
@@ -27,17 +31,20 @@
         <jsp-file>jsp/Stock.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>choosestocktask</servlet-name>
+        <jsp-file>jsp/ChooseStockTask.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>ordertreatement</servlet-name>
         <servlet-class>servlets.OrderTreatementController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>suppliercontroller</servlet-name>
         <servlet-class>servlets.SupplierOrderController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>result</servlet-name>
         <servlet-class>servlets.OrderedProductsController</servlet-class>
->>>>>>> master
     </servlet>
     
     
@@ -61,6 +68,14 @@
     <servlet-mapping>
         <servlet-name>result</servlet-name>
         <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>choosestocktask</servlet-name>
+        <url-pattern>/choosestocktask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clientsorderstask</servlet-name>
+        <url-pattern>/clientsorderstask</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>stock</servlet-name>

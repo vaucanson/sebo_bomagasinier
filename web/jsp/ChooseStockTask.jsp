@@ -23,8 +23,8 @@
             <tag:menu />
 
         </header>
-            <div><a href="Stock.jsp"><button class="btn">Gestion des Stocks<br>(Commandes Fournisseurs)</button></a></div>
+            <div><a href="stock"><button class="btn">Gestion des Stocks<br>(Commandes Fournisseurs)</button></a></div>
             
-            <div><a href="#"><button class="btn">Enregistrer réception d'articles</button></a></div>
+            <div><a href="reception"><button class="btn">Enregistrer réception d'articles</button></a></div>
     </body>
 </html>

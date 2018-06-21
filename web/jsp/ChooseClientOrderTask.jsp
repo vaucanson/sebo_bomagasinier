@@ -23,7 +23,7 @@
             <tag:menu />
 
         </header>
-            <div><a href="ClientsOrders.jsp"><button class="btn">Liste des commandes en attente</button></a></div>
+            <div><a href="clientsorders"><button class="btn">Liste des commandes en attente</button></a></div>
             
             <div><a href="#"><button class="btn">Préparation de commandes</button></a></div>
     </body>

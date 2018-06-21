@@ -28,7 +28,7 @@
         
          <main>
             
-        <%--      <%=SupplierOrderBean.getWaitingOrders(out) %> -->
+        
              
          </main>
     </body>
